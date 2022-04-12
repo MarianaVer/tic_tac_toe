@@ -1,0 +1,52 @@
+#game {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+    border: 1px solid rgb(31, 51, 183);
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(82, 82, 82);
+    font-size: 50px;
+}
+
+.disabled {
+    cursor: not-allowed;
+}
+
+.results {
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    color: rgb(82, 82, 82);
+    font-size: 20px;
+    flex-direction: column;
+}
+
+.results button {
+    font-size: 30px;
+    background-color: rgb(31, 51, 183);
+    color: white;
+    padding: 0.2em 0.4em;
+    cursor: pointer;
+  }
+
+.results.show {
+    display: flex;
+  }
+  
+
