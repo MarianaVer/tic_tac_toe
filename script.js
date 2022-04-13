@@ -2,15 +2,15 @@
 
 const movesX = [];
 const movesO = [];
-const winnerMovew = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
+const winnerMoves = [
+    ['0', '1', '2'],
+    ['3', '4', '5'],
+    ['6', '7', '8'],
+    ['0', '3', '6'],
+    ['1', '4', '7'],
+    ['2', '5', '8'],
+    ['0', '4', '8'],
+    ['2', '4', '6']
 ];
 
 const cell = document.querySelectorAll('.cell');
@@ -22,15 +22,33 @@ cell.forEach(item => {
         if (i % 2 == 0) {
         item.innerHTML = 'X';
         movesX.push(item.dataset.value);
+
+        let x = movesX.sort().toString();
+          if (winnerMoves.some(e => e.sort().toString() == x)) {
+              alert ('X wins!');
+          }
+
         } else {
             item.innerHTML = '0';
             movesO.push(item.dataset.value);
+
+            let o = movesO.sort().toString();
+          if (winnerMoves.some(e => e.sort().toString() == o)) {
+              alert ('0 wins!');
+          }
         }
         i++;
         return (movesX, movesO);
     }, {once: true});
-    
     });
 }
-  
+
+
+
+
 moves();
+
+
+
+
+
