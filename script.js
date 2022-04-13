@@ -25,7 +25,7 @@ cell.forEach(item => {
 
         let x = movesX.sort().toString();
           if (winnerMoves.some(e => e.sort().toString() == x)) {
-              alert ('X wins!');
+              setTimeout(() => alert('X wins'), 80);
           }
 
         } else {
@@ -34,7 +34,7 @@ cell.forEach(item => {
 
             let o = movesO.sort().toString();
           if (winnerMoves.some(e => e.sort().toString() == o)) {
-              alert ('0 wins!');
+              setTimeout(() => alert('0 wins'), 80);
           }
         }
         i++;
