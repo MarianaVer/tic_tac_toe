@@ -32,20 +32,24 @@ cell.forEach(item => {
             item.classList.add('disabled');
         }
 
-        winnerMoves.forEach(e => {
-            const xWins = e.every(e => movesX.includes(e));
-            const oWins = e.every(e => movesO.includes(e));
+        winnerMoves.forEach(i => {
+            const xWins = i.every(i => movesX.includes(i));
+            const oWins = i.every(i => movesO.includes(i));
             if (xWins) {
               setTimeout(() => winnerIs.innerHTML = 'X wins!', 200);
+                  
             } else if (oWins) {
               setTimeout(() => winnerIs.innerHTML = 'O wins!', 200);
-            }
+            } 
         });
+
+        if (!document.querySelectorAll('.cell:not(.disabled)').length) {
+            setTimeout(() => winnerIs.innerHTML = 'Draw!', 200);
+       }
 
         i++;
     }, {once: true});
-    });
-    
+    }); 
 }
 
 button.addEventListener('click', () => {
