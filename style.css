@@ -1,9 +1,18 @@
+.game-title {
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(218, 33, 33);
+    font-style: italic;
+}
+
 #game {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: grid;
-    justify-content: center;
-    align-content: center;
-    justify-items: center;
-    align-items: center;
     grid-template-columns: repeat(3, auto);
 }
 
@@ -20,33 +29,32 @@
 }
 
 .disabled {
-    cursor: not-allowed;
+    cursor: default;
 }
 
-.results {
-    display: none;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: white;
-    justify-content: center;
-    align-items: center;
-    color: rgb(82, 82, 82);
-    font-size: 20px;
-    flex-direction: column;
-}
-
-.results button {
+.winner {
+    position: absolute;
+    top: 61%;
+    left: 50%;
     font-size: 30px;
+    font-weight: bold;
+    color: rgb(30, 169, 20);
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+button {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
     background-color: rgb(31, 51, 183);
     color: white;
     padding: 0.2em 0.4em;
     cursor: pointer;
   }
+  
 
-.results.show {
-    display: flex;
-  }
   
 

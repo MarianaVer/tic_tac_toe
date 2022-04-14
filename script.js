@@ -14,6 +14,7 @@ const winnerMoves = [
 ];
 
 const cell = document.querySelectorAll('.cell');
+const winnerIs = document.querySelector('.winner');
 
 function moves() {
     let i = 0;
@@ -22,19 +23,21 @@ cell.forEach(item => {
         if (i % 2 == 0) {
         item.innerHTML = 'X';
         movesX.push(item.dataset.value);
+        item.classList.add('disabled');
 
         let x = movesX.sort().toString();
           if (winnerMoves.some(e => e.sort().toString() == x)) {
-              setTimeout(() => alert('X wins'), 80);
+              setTimeout(() => winnerIs.innerHTML = 'X wins!', 200);
           }
 
         } else {
-            item.innerHTML = '0';
+            item.innerHTML = 'O';
             movesO.push(item.dataset.value);
+            item.classList.add('disabled');
 
             let o = movesO.sort().toString();
           if (winnerMoves.some(e => e.sort().toString() == o)) {
-              setTimeout(() => alert('0 wins'), 80);
+              setTimeout(() => winnerIs.innerHTML = 'O wins!', 200);
           }
         }
         i++;
@@ -42,9 +45,6 @@ cell.forEach(item => {
     }, {once: true});
     });
 }
-
-
-
 
 moves();
 
