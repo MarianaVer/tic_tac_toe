@@ -40,13 +40,11 @@ cell.forEach(item => {
                   
             } else if (oWins) {
               setTimeout(() => winnerIs.innerHTML = 'O wins!', 200);
-            } 
+
+            } else if (!document.querySelectorAll('.cell:not(.disabled)').length && !xWins && !oWins) {
+                setTimeout(() => winnerIs.innerHTML = 'Draw!', 200);
+            }
         });
-
-        if (!document.querySelectorAll('.cell:not(.disabled)').length) {
-            setTimeout(() => winnerIs.innerHTML = 'Draw!', 200);
-       }
-
         i++;
     }, {once: true});
     }); 
