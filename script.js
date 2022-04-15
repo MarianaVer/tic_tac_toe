@@ -14,8 +14,9 @@ const winnerMoves = [
 ];
 
 const cell = document.querySelectorAll('.cell');
-const winnerIs = document.querySelector('.winner');
+const winnerIs = document.querySelector('.winner-text');
 const button = document.querySelector('.restart');
+const modal = document.querySelector('.modal');
 
 function moves() {
     let i = 0;
@@ -36,13 +37,16 @@ cell.forEach(item => {
             const xWins = i.every(i => movesX.includes(i));
             const oWins = i.every(i => movesO.includes(i));
             if (xWins) {
-              setTimeout(() => winnerIs.innerHTML = 'X wins!', 200);
+                setTimeout(() => modal.classList.add('show'), 250);
+                setTimeout(() => winnerIs.innerHTML = 'X wins!', 250);
                   
             } else if (oWins) {
-              setTimeout(() => winnerIs.innerHTML = 'O wins!', 200);
-
+                setTimeout(() => modal.classList.add('show'), 250);
+                setTimeout(() => winnerIs.innerHTML = 'O wins!', 250);
+              
             } else if (!document.querySelectorAll('.cell:not(.disabled)').length && !xWins && !oWins) {
-                setTimeout(() => winnerIs.innerHTML = 'Draw!', 200);
+                setTimeout(() => modal.classList.add('show'), 250);
+                setTimeout(() => winnerIs.innerHTML = 'Draw!', 250);
             }
         });
         i++;
@@ -51,13 +55,14 @@ cell.forEach(item => {
 }
 
 button.addEventListener('click', () => {
-    winnerIs.innerHTML = '';
     cell.forEach(item => {
         item.classList.remove('disabled');
         item.innerHTML = '';
     });
     movesX.splice(0);
     movesO.splice(0);
+    winnerIs.innerHTML = '';
+    modal.classList.remove('show');
     moves();
 });
 
